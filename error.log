@@ -1,0 +1,253 @@
+2021-08-19T18:04:44.963480+0800 ERROR An error has been caught in function 'run', process 'MainProcess' (6132), thread 'WorkerThread2' (4060):
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\threading.py", line 912, in _bootstrap
+    self._bootstrap_inner()
+    |    -> <function Thread._bootstrap_inner at 0x000001EA17496670>
+    -> <WorkerThread(WorkerThread2, started daemon 4060)>
+
+  File "C:\Python39\lib\threading.py", line 954, in _bootstrap_inner
+    self.run()
+    |    -> <function WorkerThread.run at 0x000001EA17715160>
+    -> <WorkerThread(WorkerThread2, started daemon 4060)>
+
+> File "C:\Users\iliya\PycharmProjects\venv\lib\site-packages\telebot\util.py", line 82, in run
+    task(*args, **kwargs)
+    |     |       -> {}
+    |     -> (<telebot.types.Message object at 0x000001EA19B3CA30>,)
+    -> <function choice_counter at 0x000001EA19AF2F70>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 222, in choice_counter
+    choice_hotels.answer_count(count=count)
+    |             |                  -> <telebot.types.Message object at 0x000001EA19B3CA30>
+    |             -> <function Hotels.answer_count at 0x000001EA19AE5B80>
+    -> <__main__.Hotels object at 0x000001EA19AF0F70>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 32, in answer_count
+    self.__counter_hotels = int(count.text)
+    |                           |     -> 'г'
+    |                           -> <telebot.types.Message object at 0x000001EA19B3CA30>
+    -> <__main__.Hotels object at 0x000001EA19AF0F70>
+
+ValueError: invalid literal for int() with base 10: 'г'
+2021-08-19T18:24:44.275381+0800 ERROR An error has been caught in function 'run', process 'MainProcess' (4888), thread 'WorkerThread1' (8124):
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\threading.py", line 912, in _bootstrap
+    self._bootstrap_inner()
+    |    -> <function Thread._bootstrap_inner at 0x000001F155CF6670>
+    -> <WorkerThread(WorkerThread1, started daemon 8124)>
+
+  File "C:\Python39\lib\threading.py", line 954, in _bootstrap_inner
+    self.run()
+    |    -> <function WorkerThread.run at 0x000001F155F75160>
+    -> <WorkerThread(WorkerThread1, started daemon 8124)>
+
+> File "C:\Users\iliya\PycharmProjects\venv\lib\site-packages\telebot\util.py", line 82, in run
+    task(*args, **kwargs)
+    |     |       -> {}
+    |     -> (<telebot.types.Message object at 0x000001F158372700>,)
+    -> <function choice_counter at 0x000001F1583429D0>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 228, in choice_counter
+    choice_hotels.answer_count(count=count)
+    |             |                  -> <telebot.types.Message object at 0x000001F158372700>
+    |             -> <function Hotels.answer_count at 0x000001F158335B80>
+    -> <__main__.Hotels object at 0x000001F158339F70>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 32, in answer_count
+    self.__counter_hotels = int(count.text)
+    |                           |     -> 'ш'
+    |                           -> <telebot.types.Message object at 0x000001F158372700>
+    -> <__main__.Hotels object at 0x000001F158339F70>
+
+ValueError: invalid literal for int() with base 10: 'ш'
+2021-09-12T12:35:25.725142+0800 ERROR An error has been caught in function 'run', process 'MainProcess' (14356), thread 'WorkerThread1' (13040):
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 445, in _make_request
+    six.raise_from(e, None)
+    |   -> <function raise_from at 0x0000015A2FB8E820>
+    -> <module 'urllib3.packages.six' from 'C:\\Python39\\lib\\site-packages\\urllib3\\packages\\six.py'>
+
+  File "<string>", line 3, in raise_from
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 440, in _make_request
+    httplib_response = conn.getresponse()
+                       |    -> <function HTTPConnection.getresponse at 0x0000015A2FC534C0>
+                       -> <urllib3.connection.HTTPSConnection object at 0x0000015A30642640>
+
+  File "C:\Python39\lib\http\client.py", line 1347, in getresponse
+    response.begin()
+    |        -> <function HTTPResponse.begin at 0x0000015A2FC51820>
+    -> <http.client.HTTPResponse object at 0x0000015A306425B0>
+
+  File "C:\Python39\lib\http\client.py", line 307, in begin
+    version, status, reason = self._read_status()
+                              |    -> <function HTTPResponse._read_status at 0x0000015A2FC51790>
+                              -> <http.client.HTTPResponse object at 0x0000015A306425B0>
+
+  File "C:\Python39\lib\http\client.py", line 268, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               |    |           -> 65536
+               |    -> None
+               -> <http.client.HTTPResponse object at 0x0000015A306425B0>
+
+  File "C:\Python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+           |    |               -> <memory at 0x0000015A305E31C0>
+           |    -> None
+           -> <socket.SocketIO object at 0x0000015A30642730>
+
+  File "C:\Python39\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+           |    |    |       -> <memory at 0x0000015A305E31C0>
+           |    |    -> 8192
+           |    -> <function SSLSocket.read at 0x0000015A2FB63DC0>
+           -> <ssl.SSLSocket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+  File "C:\Python39\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+           |    |            |    -> <memory at 0x0000015A305E31C0>
+           |    |            -> 8192
+           |    -> None
+           -> <ssl.SSLSocket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+socket.timeout: The read operation timed out
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+           |    -> <function HTTPConnectionPool.urlopen at 0x0000015A2FCE79D0>
+           -> <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000015A30620AC0>
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+              |       -> <function Retry.increment at 0x0000015A2FC7DEE0>
+              -> Retry(total=0, connect=None, read=False, redirect=None, status=None)
+
+  File "C:\Python39\lib\site-packages\urllib3\util\retry.py", line 532, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          |   |            |       |      -> <traceback object at 0x0000015A3063CC40>
+          |   |            |       -> ReadTimeoutError("HTTPSConnectionPool(host='hotels4.p.rapidapi.com', port=443): Read timed out. (read timeout=1)")
+          |   |            -> ReadTimeoutError("HTTPSConnectionPool(host='hotels4.p.rapidapi.com', port=443): Read timed out. (read timeout=1)")
+          |   -> <function reraise at 0x0000015A2FB8E790>
+          -> <module 'urllib3.packages.six' from 'C:\\Python39\\lib\\site-packages\\urllib3\\packages\\six.py'>
+
+  File "C:\Python39\lib\site-packages\urllib3\packages\six.py", line 770, in reraise
+    raise value
+          -> None
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+                       |    -> <function HTTPConnectionPool._make_request at 0x0000015A2FCE7790>
+                       -> <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000015A30620AC0>
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 447, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    |    |                         |                  -> 1
+    |    |                         -> '/locations/search?query=%D0%B8%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE&locale=ru_RU'
+    |    -> <function HTTPConnectionPool._raise_timeout at 0x0000015A2FCE7700>
+    -> <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000015A30620AC0>
+
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 336, in _raise_timeout
+    raise ReadTimeoutError(
+          -> <class 'urllib3.exceptions.ReadTimeoutError'>
+
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='hotels4.p.rapidapi.com', port=443): Read timed out. (read timeout=1)
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\threading.py", line 912, in _bootstrap
+    self._bootstrap_inner()
+    |    -> <function Thread._bootstrap_inner at 0x0000015A2E2874C0>
+    -> <WorkerThread(WorkerThread1, started daemon 13040)>
+
+  File "C:\Python39\lib\threading.py", line 954, in _bootstrap_inner
+    self.run()
+    |    -> <function WorkerThread.run at 0x0000015A2E2AE310>
+    -> <WorkerThread(WorkerThread1, started daemon 13040)>
+
+> File "C:\Python39\lib\site-packages\telebot\util.py", line 82, in run
+    task(*args, **kwargs)
+    |     |       -> {}
+    |     -> (<telebot.types.Message object at 0x0000015A30620880>,)
+    -> <function city_search at 0x0000015A305E2EE0>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 166, in city_search
+    response = requests.request("GET", url, headers=headers, params=querystring, timeout=1)
+               |        |              |            |               -> {'query': 'иваново', 'locale': 'ru_RU'}
+               |        |              |            -> {'x-rapidapi-host': 'hotels4.p.rapidapi.com', 'x-rapidapi-key': 'a43186f946msh48e7e231d546b5ep1e9bf0jsn57ce95d7f5c3'}
+               |        |              -> 'https://hotels4.p.rapidapi.com/locations/search'
+               |        -> <function request at 0x0000015A302B6550>
+               -> <module 'requests' from 'C:\\Python39\\lib\\site-packages\\requests\\__init__.py'>
+
+  File "C:\Python39\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+           |       |              |           |      -> {'headers': {'x-rapidapi-host': 'hotels4.p.rapidapi.com', 'x-rapidapi-key': 'a43186f946msh48e7e231d546b5ep1e9bf0jsn57ce95d7f5...
+           |       |              |           -> 'https://hotels4.p.rapidapi.com/locations/search'
+           |       |              -> 'GET'
+           |       -> <function Session.request at 0x0000015A302F2430>
+           -> <requests.sessions.Session object at 0x0000015A30620DC0>
+
+  File "C:\Python39\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+           |    |    |       -> {'timeout': 1, 'allow_redirects': True, 'verify': True, 'proxies': OrderedDict(), 'stream': False, 'cert': None}
+           |    |    -> <PreparedRequest [GET]>
+           |    -> <function Session.send at 0x0000015A302F28B0>
+           -> <requests.sessions.Session object at 0x0000015A30620DC0>
+
+  File "C:\Python39\lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+        |       |    |          -> {'timeout': 1, 'verify': True, 'proxies': OrderedDict(), 'stream': False, 'cert': None}
+        |       |    -> <PreparedRequest [GET]>
+        |       -> <function HTTPAdapter.send at 0x0000015A302EAD30>
+        -> <requests.adapters.HTTPAdapter object at 0x0000015A30620FA0>
+
+  File "C:\Python39\lib\site-packages\requests\adapters.py", line 529, in send
+    raise ReadTimeout(e, request=request)
+          |                      -> <PreparedRequest [GET]>
+          -> <class 'requests.exceptions.ReadTimeout'>
+
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='hotels4.p.rapidapi.com', port=443): Read timed out. (read timeout=1)
+2021-09-12T12:48:12.935974+0800 ERROR An error has been caught in function 'run', process 'MainProcess' (17144), thread 'WorkerThread2' (13504):
+Traceback (most recent call last):
+
+  File "C:\Python39\lib\threading.py", line 912, in _bootstrap
+    self._bootstrap_inner()
+    |    -> <function Thread._bootstrap_inner at 0x0000015CC7E084C0>
+    -> <WorkerThread(WorkerThread2, started daemon 13504)>
+
+  File "C:\Python39\lib\threading.py", line 954, in _bootstrap_inner
+    self.run()
+    |    -> <function WorkerThread.run at 0x0000015CC7E2E310>
+    -> <WorkerThread(WorkerThread2, started daemon 13504)>
+
+> File "C:\Python39\lib\site-packages\telebot\util.py", line 82, in run
+    task(*args, **kwargs)
+    |     |       -> {}
+    |     -> (<telebot.types.Message object at 0x0000015CCA1C4B20>,)
+    -> <function choice_counter at 0x0000015CCA1A6700>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 301, in choice_counter
+    choice_hotels.answer_count(count=count)
+    |             |                  -> <telebot.types.Message object at 0x0000015CCA1C4B20>
+    |             -> <function Hotels.answer_count at 0x0000015CCA194820>
+    -> <__main__.Hotels object at 0x0000015CCA19E700>
+
+  File "C:\Users\iliya\PycharmProjects\python_basic_diploma\bot\main.py", line 47, in answer_count
+    self.__counter_hotels = int(count.text)
+    |                           |     -> 'г'
+    |                           -> <telebot.types.Message object at 0x0000015CCA1C4B20>
+    -> <__main__.Hotels object at 0x0000015CCA19E700>
+
+ValueError: invalid literal for int() with base 10: 'г'
